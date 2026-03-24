@@ -57,7 +57,7 @@ int main(int argc, char* argv[]) {
         int clientAddrLen = sizeof(clientAddr);
         SOCKET connSock = accept(listenSock, (struct sockaddr *)&clientAddr, &clientAddrLen);
         
-        if (connSock != INVALID_SOCKET) {
+        if (connSock == INVALID_SOCKET) {
             printf("Loi accept: %d\n", WSAGetLastError());
             continue;
         }
